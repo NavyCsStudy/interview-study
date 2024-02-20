@@ -46,9 +46,9 @@ Read Through 는 캐시에 데이터가 존재하면 해당 데이터를 응답�
 </details>
 <details>
   <summary>3-2. 캐시의 쓰기 전략 중 알고계신게 있다면 설명해주세요.</summary>
-  캐시의 쓰기 전략에는 Write Back, Write Aroung, Write Through 가 있습니다.
+  캐시의 쓰기 전략에는 Write Back, Write Around, Write Through 가 있습니다.
 Write Back 은 캐시에 데이터를 모아 일정 주기 배치 작업을 통해 db에 반영합니다.
-Write Aroung 은 db에만 데이터를 저장하고 cache miss 가 발생했을 때만 캐시에 db에 있는 데이터를 가져옵니다.
+Write Around 은 db에만 데이터를 저장하고 cache miss 가 발생했을 때만 캐시에 db에 있는 데이터를 가져옵니다.
 Write Through 는 캐시에 데이터를 저장하고 캐시에서 db에 데이터를 저장합니다.
 </details>
 
