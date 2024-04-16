@@ -93,3 +93,23 @@ RBD 는 NoSQL 과는 달리 테이블 간의 복잡한 연관관계나 제약 �
 </details>
 
 ---
+
+<details>
+  <summary>6. Elasticsearch 에 대해서 알고계신가요?</summary>
+  자바 오픈 소스 분산 검색 엔진입니다. Elasticsearch 를 사용하여 많은 양의 데이터를 빠르게 저장, 검색, 분석할 수 있습니다.
+</details>
+<details>
+  <summary>6-1. Elasticsearch 가 검색 속도가 빠른 이유가 무엇인가요?</summary>
+  검색 요청을 각 세그먼트에 분산할 수 있고, 세그먼트는 내부의 데이터가 역색인 구조로 저장되어 있어 빠른 검색속도를 갖습니다.
+</details>
+<details>
+  <summary>6-2. 역색인 방식이 무엇인가요?</summary>
+  키워드를 통해 문서를 찾아내는 방식입니다.
+  
+</details>
+<details>
+  <summary>6-3. Elasticsearch 의 단점에는 무엇이 있나요?</summary>
+  트랜잭션 및 롤백을 지원하지 않으며 실시간 처리가 불가능합니다.
+</details>
+
+---
