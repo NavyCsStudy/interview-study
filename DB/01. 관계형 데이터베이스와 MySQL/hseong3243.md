@@ -185,6 +185,38 @@ MySQL 엔진은 클라이언트의 접속 및 쿼리 요청을 처리하는 커�
 </div>
 </details>
 
+---
+
+<details>
+  <summary>6. SQL 인젝션에 대해 설명해주세요.</summary>
+
+DB와 연동된 애플리케이션에서 입력된 데이터에 대한 유효성 검증을 하지 않을 경우, 악의적인 공격자는 입력 폼 등에 SQL을 삽입하여 DB로부터 정보를 열람하거나 조작할 수 있는 공격입니다.
+
+### 예시
+```sql
+select * from users weher username='admin' adn password='' or '1'='1'
+```
+</details>
+<details>
+  <summary>6-1. SQL 인젝션을 막기위해서는 어떻게 해야하나요?</summary>
+
+### Prepared Statement(선처리 질의문)
+SQL 쿼리문을 선처리하여 이후 입력된느 변수 값이 항상 문자열 변수로만 다루어지도록 하는 방법입니다.
+</details>
+
+---
+
+<details>
+  <summary>7. SQL 인젝션에 대해 설명해주세요.</summary>
+
+DB와 연동된 애플리케이션에서 입력된 데이터에 대한 유효성 검증을 하지 않을 경우, 악의적인 공격자는 입력 폼 등에 SQL을 삽입하여 DB로부터 정보를 열람하거나 조작할 수 있는 공격입니다.
+
+### 예시
+```sql
+select * from users weher username='admin' adn password='' or '1'='1'
+```
+</details>
+
 ## 참고
 
 Real MySQL
