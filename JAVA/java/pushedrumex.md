@@ -148,3 +148,82 @@
   현재 스레드가 존재하는 CPU 의 캐시 메모리와 메인 메모리에 저장된 값을 비교하여 같으면 새로운 값으로 교체하고 일치하지 않을 경우 새로 바뀐 값을 읽어와서 다시 시도하는 알고리즘입니다.
 </details>
 
+---
+
+<details>
+  <summary>8. reflection 이란 무엇인가요?</summary>
+  구체적인 클래스 타입을 알지 못하더라도 클래스의 메서드, 타입, 변수들에 접근할 수 있도록 해주는 자바 API입니다.
+</details>
+<details>
+  <summary>8-1. reflection 의 동작원리에 대해 설명해주세요</summary>
+  JVM이 실행되면 클래스 로더에 의해 바이트 코드가 로딩되고 클래스 메타데이터가 Method Area 에 저장됩니다. 리플렉션 API 를 호출하면 Method Area 에 저장된 정보를 통해 런타임 시점에 동적으로 클래스 정보를 추출할 수 있습니다.
+</details>
+<details>
+  <summary>8-2. JPA Entity 에서 기본 생성자가 필요한 이유가 무엇인가요?</summary>
+  JPA는 지연 로딩을 제공하기 위해 reflecion 을 이용하여 객체를 동적으로 생성하는데 이 때 기본 생성자로 객체를 생성하기 때문입니다.
+</details>
+
+---
+
+<details>
+  <summary>9. Stream 이란 무엇인가요?</summary>
+  컬렉션의 요소를 하나씩 참조하여 람다식으로 처리할 수 있도록 해주는 반복자입니다.
+</details>
+<details>
+  <summary>9-1. Stream 이 for 문과 다른점이 무엇인가요?</summary>
+  
+    1. Stream은 람다식으로 처리할 수 있기 때문에 가독성이 높습니다.
+    2. 병렬처리가 가능합니다. 한가지 작업을 서브 작업으로 나누고, 서브 작업들을 분리된 스레드레서 병렬로 처리할 수 있습니다. 자바에서는 Fork Join 프레임 워크를 사용하여 병렬 처리를 제공합니다.
+</details>
+<details>
+  <summary>9-2. Stream이랑 for문이랑 어떤것이 빠른가요? 이유는 무엇인가요?</summary>
+  병렬 처리가 아니라면 일반적으로 Stream은 for문보다 느립니다. Stream은 Stream 생성, 중개 연산, 최종 연산 등의 오버헤드가 발생하고 자바 컴파일러가 for문에 내부 최적화가 잘 되어있기 때문입니다.
+</details>
+
+---
+
+<details>
+  <summary>10. call by value 에 대해 설명해주세요</summary>
+  인자로 받은 값을 복사하여 처리하는 방식으로, 원래의 값을 수정하지 않습니다.
+</details>
+<details>
+  <summary>10-1. call by reference 에 대해 설명해주세요</summary>
+  인자로 받은 값의 주소를 참조하여 직접 값에 영향을 주는 방식입니다. 원래의 값이 수정됩니다.
+</details>
+<details>
+  <summary>10-2. 자바는 둘 중 어떤 방식으로 동작하나요?</summary>
+  자바는 call by value 로 동작합니다. 자바는 값을 넘겨 받은 메소드에서 값을 복사하여 새로운 지역 변수에 저장하여 사용합니다.
+</details>
+
+---
+
+<details>
+  <summary>11. 자바의 예외 계층 구조에 대해 설명해주세요</summary>
+  가장 상위 클래스인 Throwable이고 이를 상속하는 Error, Exception이 있습니다. 또한 Error를 상속하는 OOMF, SOF 등이 있으며, Exception 을 상속하는 RuntimeException 과 IOException 등이 있습니다.
+</details>
+<details>
+  <summary>11-1. Checked Exceptin 과 UnChecked Exception 에 대해 설명해주세요</summary>
+  Checked Exception 은 컴파일러가 예외 처리를 강제하는 예외입니다. Exception 하위 클래스 중 RuntimeException 을 제외한 모든 예외가 포함됩니다.
+Unchecked Exception 은 컴파일러가 예외 처리를 강제하지 않는 예외입니다. RuntimeException 클래스와 그 하위 클래스가 이에 속합니다. 프로그램의 코드의 문제로 인해 런타임시 발생되는 예외이므로 예외 처리를 강제하지 않습니다.
+</details>
+<details>
+  <summary>11-2. 예외 처리 방법에는 어떤것들이 있나요?</summary>
+  try-catch-finally 가 있습니다. try 블록에서 예외가 발생하면 catch 블록으로 제어가 이동합니다. finally 블록은 예외 발생 여부와 상관없이 항상 실행되는 블록입니다.
+또한 호출한 쪽에서 예외를 처리하도록 하는 throws가 있습니다.
+</details>
+
+---
+
+<details>
+  <summary>12. 자바 직렬화란 무엇인가요?</summary>
+  자바 시스템 내부에서 사용되는 객체 또는 데이터를 외부의 자바 시스템에서도 사용할 수 있도록 바이트 형태로 변환하는 기술입니다. 
+</details>
+<details>
+  <summary>12-1. 자바에서 직렬화를 하는 방법에 대해 설명해주세요</summary>
+  원시적 타입이거나 Serializable 인터페이스를 상속받아야합니다.
+</details>
+<details>
+  <summary>12-2. 특정 필드를 직렬화 대상에서 제외하는 방법이 있나요?</summary>
+  transient 키워드를 사용하면 직렬화 대상에서 제외할 수 있습니다.
+</details>
+
