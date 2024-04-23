@@ -1,5 +1,23 @@
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FNavyCsStudy%2Finterview-study&count_bg=%233068ED&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-FF66FF.svg?style=flat-square)](http://makeapullrequest.com)
 
-## 방식
+### 신입 Java/Spring 개발자 면접 스터디
+> 내용에 오류가 있거나 추가할 내용이 있다면 ```Pull Request```를 통해서 알려주시면 감사합니다.
+
+---
+
+### 목차
+
+1. DB
+2. Java
+3. Spring
+4. OS
+5. Network
+6. DataStructure
+
+---
+
+### 방식
 
 - 주제 주고 거기에 맞는 질문과 답 적어서 깃허브에 올리기. (스터디 시작 전까지 PR)
     - 토글로 질문 올리고 그 안에 답 적기
@@ -20,7 +38,9 @@
     ex) **`DB`/`01. 관계형 데이터베이스와 MySQL`/`pushedrumex.md`**
     
 
-## 안하면?
+---
+
+### 안하면?
 
 [모인 돈](https://www.notion.so/04c7b62c96d341bcacc8823768af4f3a?pvs=21)
 
@@ -31,3 +51,4 @@
 ### 타당한 사유
 
 면접 일정, 경조사, 설득력 있는 사유 (2인 이상 찬성)
+
