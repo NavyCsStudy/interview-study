@@ -1,7 +1,8 @@
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FNavyCsStudy%2Finterview-study&count_bg=%233068ED&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-FF66FF.svg?style=flat-square)](http://makeapullrequest.com)
 
-### 신입 Java/Spring 개발자 면접 스터디
+### Java/Spring 개발자 면접 스터디
+> 각 팀원들이 자문자답을 통해 주제에 대한 꼬리질문을 대비했습니다. <br>
 > 내용에 오류가 있거나 추가할 내용이 있다면 ```Pull Request```를 통해서 알려주시면 감사합니다.
 
 ---
@@ -13,7 +14,7 @@
 3. Spring
 4. OS
 5. Network
-6. DataStructure
+6. DataStructure / Algorithm
 
 ---
 
