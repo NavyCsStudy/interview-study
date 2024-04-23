@@ -185,3 +185,124 @@
 </details>
 
 ---
+<details>
+  <summary>9. Java의 장단점</summary>
+  <li> 장점<ul>
+    <li> JVM 위에서 동작하기 때문에 운영체제에 독립적이다.</li>
+    <li> 가비지컬렉터가 메모리를 관리해주기 때문에 편리하다.</li></ul></li>
+<li> 단점<ul>
+    <li> JVM 위에서 동작하기 때문에 실행 속도가 상대적으로 느리다.</li>
+    <li> 다중 상속이나 타입에 엄격하는 등 제약이 많다.</li></ul></li>
+</details>
+
+---
+<details>
+  <summary>10. Java는 다중 상속을 지원합니까?</summary>
+  아니요.
+</details>
+<details>
+  <summary>10-1. Java가 다중 상속을 지원하지 않는 이유는 무엇입니까?</summary>
+  다중 상속을 지원하면 다이아몬드 문제가 발생할 수 있기 때문입니다. 또한 구조 파악이 어렵습니다.
+
+다이아몬드 문제: 예를 들어 Fruit 클래스에 있는 eat() 메서드를 Apple과 Banana 클래스가 각각 구현을 한 상황에서, Food라는 클래스가 Apple과 Banana를 다중 상속 받는다면 코드의 충돌이 발생하게 됩니다.
+</details>
+
+---
+<details>
+  <summary>11. 자바에서 동시성을 처리하는 방법에 대해 설명해주세요.</summary>
+  <li> 스레드 동기화: 멀티스레드 환경에서 여러 스레드가 하나의 공유자원에 동시에 접근하지 못하도록 막는것을 말하며 synchronized라는 키워드를 통해 동기화한다.</li>
+<li> 동시성 컬렉션 사용 e.g. ConcurrentHashMap, CopyOnWriteArrayList</li>
+<li> CompletableFuture: CompletableFuture 클래스는 비동기 프로그래밍을 위한 기능을 제공합니다. 이를 사용하면 비동기 작업의 결과를 효율적으로 처리하고, 여러 비동기 작업을 조합하거나 연결할 수 있습니다.</li>
+</details>
+
+---
+<details>
+  <summary>12. Java의 StringBuffer와 StringBuilder 차이</summary>
+  Java에서 StringBuffer와 StringBuilder는 모두 문자열을 다루기 위해 사용되지만, 주요 차이점은 동기화 여부에 있습니다.<br>
+<li> StringBuffer는 동기화 지원 : 여러 스레드가 동시에 StringBuffer 객체를 수정하려고 할 때, 한 번에 하나의 스레드만 변경할 수 있도록 한다. 그래서 StringBuilder보다 느릴 수 있다.</li>
+<li> StringBuillder는 동기화 지원 X: 따라서 멀티스레드 환경에서 안전하지 않을 수 있지만, 빠르다!</li>
+</details>
+
+---
+<details>
+  <summary>13. OOME(Out of Memory Error)란?</summary>
+  객체를 생성하는 과정에서 힙 공간에 객체를 할당하기 위한 공간이 부족할 경우 발생한다.
+</details>
+<details>
+  <summary>13-1. OOME의 종류와 원인, 해결법에 대해 설명해주세요</summary>
+  <li> java.lang.OutOfMemoryError: Java heap space(Java 힙 공간)<ul>
+    <li> 원인<ul>
+        <li> 자바 힙 공간에 새로운 객체를 생성할 수 없는 경우에 발생한다.</li>
+        <li> 메모리 누수가 아닌 지정한 힙 크기(혹은 기본 크기)가 애플리케이션에 충분하지 않은 경우에도 발생한다.</li>
+        <li> 혹은, 생명주기가 긴 애플리케이션의 경우 finalize를 과도하게 사용할 때 발생하기도 한다.<ul>
+            <li> finalize는 소멸을 명시적으로 할 때 사용하나 GC에 마킹하는 데 오래걸리는 단점이 있다.</li></ul></li>
+        </ul></li>
+    <li> 조치<ul>
+        <li> JVM Option 을 통해 Heap size 를 늘려 해결할 수 있다.</li></ul></li></ul></li>
+<li> java.lang.OutOfMemoryError: GC Overhead limit exceeded(GC 오버헤드 한도 초과)<ul>
+    <li> 원인<ul>
+        <li> 메모리가 부족하여 가비지 컬렉션이 이루어졌지만, 새로 확보된 메모리가 전체 메모리의 2% 미만일 때 발생한다.</li>
+        <li> 더 이상 가비지 컬렉션을 할 수 없을 정도로 메모리를 사용한다는 것이다.</li></ul></li>
+    <li> 조치<ul>
+        <li> 힙 크기를 늘린다.</li>
+        <li> XX:-UseGCOverheadLimit 선택사항을 추가하여 java.lang.OutOfMemoryError가 발생하는 초과 오버헤드 GC 제한 명령을 해제할 수 있다.</li></ul></li></ul></li>
+</details>
+
+---
+<details>
+  <summary>14. Inner Class란 무엇인가요?</summary>
+  하나의클래스 내부에 선언된 또 다른 클래스를 말합니다.
+</details>
+<details>
+  <summary>14-1. Inner Class(내부 클래스)의 장점에 대해 설명해주세요.</summary>
+  만약 해당 클래스가 하나의 클래스하고만 관계를 맺는 경우, 이너클래스로 작성하는 것이 유지보수 면이나 코드의 이해성 면에서 편리해집니다.
+
+또한 더욱 타이트한 캡슐화 적용이 가능해집니다. 캡슐화를 통해 외부에서의 접근을 차단하면서도, 내부 클래스에서 외부 클래스의 멤버들을 제약 없이 쉽게 접근할 수 있어 구조적인 프로그래밍이 가능해집니다. 또한 클래스 구조를 숨김으로써 코드의 복잡성도 줄일 수 있습니다.
+</details>
+<details>
+  <summary>14-2. 이너 클래스 사용한 적 있으신가요? 언제 사용하셨나요?</summary>
+  내용
+</details>
+
+---
+<details>
+  <summary>15. 자바의 static 키워드에 대해 설명해주세요.</summary>
+  Java에서 Static 키워드를 사용한다는 것은 메모리에 한번 할당되어 프로그램이 종료될 때 해제되는 것을 의미합니다.
+</details>
+<details>
+  <summary>15-1. static function의 특징에 대해 설명해주세요</summary>
+  static 메모리 영역에 존재하므로 객체가 생성되기 이전에 이미 할당이 되어 있습니다. 그렇기 때문에 객체의 생성없이 호출하여 사용할 수 있습니다.
+
+주로 유틸성 함수에 사용됩니다.
+</details>
+<details>
+  <summary>15-2. 단점이 있나요?</summary>
+  static 키워드가 붙은 변수나 함수는 자바의 메모리 영역에서 static 메모리에 위치하게 됩니다. static 영역은 Garbage Collector의 영역 밖이기 때문에 static을 자주 사용한다면 메모리 효율성을 떨어뜨리게 됩니다.
+</details>
+
+---
+<details>
+  <summary>16. 가비지 컬렉터(GC)란?</summary>
+  '더이상 참조되지 않는 메모리'인 가비지를 청소해주는 JVM의 실행 엔진의 한 요소입니다. JVM은 new와 같은 연산에 의해 새롭게 생성된 객체들 중에서 더이상 참조되지 않는 객체를 정리해줍니다. 가비지 컬렉터는 Heap 영역을 위주로 탐색하며 메모리를 정리해줍니다.
+</details>
+<details>
+  <summary>16-1. GC의 단점은?</summary>
+  stop-the-world: GC를 실행하기 위해 JVM이 애플리케이션 실행을 멈추는 것을 의미하는데, stop-the-world가 발생하면 GC를 실행하는 쓰레드를 제외한 나머지 쓰레드는 모두 작업을 멈춥니다.
+</details>
+<details>
+  <summary>16-2. 가비지 컬렉션(Garbage Collection)에 의한 시스템 중단 시간을 줄이는 방법</summary>
+  <li> 옵션을 변경하여 GC의 성능을 높이기<ul>
+    <li> young 영역과 old 영역의 힙 크기를 높여 GC의 빈도를 줄이는 것</li>
+    <li> 객체의 할당과 promotion을 줄이는 것</li></ul></li>
+<li> 설정을 변경하여 GC의 성능을 높이기<ul>
+    <li> 애플리케이션을 중단시킨 후에 GC를 병렬로 동시에 진행시키는 것</li>
+    <li> 애플리케이션과 GC작업을 동시에(concurrent) 진행시키는 것</li></ul></li>
+<li> 개발자의 코드를 변경하여 GC의 성능을 높이기<ul>
+    <li> Collection 등을 활용할 때 사용할 객체의 크기를 명시해주기</li>
+    <li> 스트림을 바로 사용하기<ul>
+        <li> 변경 전: byte[] fileData = readFileToByteArray(new File("myfile.txt"));</li>
+        <li> 변경 후: FileInputStream fis = new FileInputStream(fileName);</li></ul></li>
+    <li> 불변(Immutable) 객체 사용하기</li></ul></li>
+</details>
+
+---
