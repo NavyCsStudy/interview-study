@@ -144,3 +144,108 @@ BST를 기반으로 하기 때문에 당연히 BST의 특징을 모두 갖습니
 </details>
 
 ---
+
+<details>
+  <summary>7. Array, ArrayList 차이점</summary>
+  Array, ArrayList 모두 배열 구조이다. 하지만 Array는 크기가 고정적이지만 ArrayList는 크기가 가변적이다.
+
+따라서 Array는 초기화 시 메모리에 할당되어 ArrayList 보다 속도가 빠르고, ArrayList는 데이터 추가 및 삭제 시 메모리를 재할당하기 때문에 속도가 Array 보다 느리다.
+</details>
+<details>
+  <summary>7-1. ArrayList가 어떻게 가변적으로 동작하나요? (add, remove 동작 과정)</summary>
+  <li> add()<ul>
+    <li> 현재 배열의 크기와 저장된 데이터 개수를 비교한다.</li>
+    <li> 저장할 수 있으면 다음 위치에 데이터를 저장하고, `배열의 크기 == 데이터 개수`라면 배열 사이즈 변경 작업을 한다.</li>
+    <li> 데이터 개수, 현재 배열 크기를 기반으로 새로운 배열의 크기를 결정한다.<ul>
+        <li> 증가되는 크기 = max(1, 기존 배열의 절반 크기)</li></ul></li>
+    <li> 기존 배열을 복사해 길이를 새로운 크기로 맞춘다. (필요시 잘라내거나 null로 채워서 길이를 맞춘다)</li></ul></li>
+<li> remove()<ul>
+    <li> 현재 데이터 개수 - 1로 새 데이터 개수를 지정하고, 만약 해당 요소가 맨 끝에 있던 요소가 아니라면 뒤에 있던 값들을 앞으로 당긴다. 이후 배열의 마지막 자리를 null로 명시적으로 표기한다!</li></ul></li>
+</details>
+
+---
+
+<details>
+  <summary>8. 퀵 정렬에 대해 설명해주세요</summary>
+  pivot이라는 기준 값을 기준으로 작은 값은 왼쪽, 큰 값은 오른쪽으로 옮기는 방식으로 정렬합니다. 
+(이를 반복하여 분할된 배열의 크기가 1이되면 배열이 모두 정렬된 것)
+</details>
+<details>
+  <summary>8-1. 퀵 정렬의 시간 복잡도는 어떻게 되나요?</summary>
+  O(nlogn)이나, 최악의 경우 O(n^2)이다.
+
+이미 배열이 정렬이 되어있는 경우, 분할이 N만큼 일어나기 때문에 시간 복잡도는 O(n^2) 이 된다.
+</details>
+<details>
+  <summary>8-2. 삽입 정렬</summary>
+  현재 위치에서 앞의 요소들과 비교하여 자신이 들어갈 위치를 찾아 삽입하는 방식입니다.
+</details>
+<details>
+  <summary>8-3. 합병 정렬</summary>
+  배열을 두 개의 배열로 계속 쪼게 나간 뒤, 합치면서 정렬하는 방식입니다.
+</details>
+<details>
+  <summary>8-4. 선택 정렬</summary>
+  현재 위치에 들어갈 값을 뒤의 요소들에서 찾아 정렬하는 방식입니다.
+</details>
+<details>
+  <summary>8-5. 자바에서는 sort 어떻게 구현하고 있나요?</summary>
+  기본형 정렬할 때는 Dual-Pivot Quicksort, 객체형을 정렬할 때는 Timsort 사용한다.
+
+- Dual-Pivot Quicksort: 두 개의 pivot을 사용하여 배열을 세 부분으로 나누어 정렬하는 방법
+</details>
+<details>
+  <summary>8-6. Timsort란?</summary>
+  합병 정렬과 삽입 정렬이 혼합된 알고리즘으로, 합병정렬을 기반으로 구현하되, 일정 크기 이하의 부분 리스트에 대해서는 이진 삽입 정렬을 수행하는 방식이다.
+
+1. 배열을 연속된 작은 부분 배열로 분할한다. 이 부분 배열들은 이미 정렬되어있거나 거의 정렬된 상태일 수 있다. 이러한 부분 배열을 ‘런(run)’ 이라고 한다.
+2. 삽입 정렬을 사용하여 각 런을 정렬한다. 작은 크기의 런에서는 삽입 정렬이 상대적으로 빠른 속도를 보인다.
+3. 병합 정렬의 병합 과정을 사용하여 인접한 런들을 결합한다. 이 과정은 모든 런이 하나의 정렬된 배열이 될 때까지 반복한다.
+</details>
+
+---
+
+<details>
+  <summary>9. BST에 대해 설명해주세요</summary>
+  정렬된 이진트리로, 왼쪽 서브트리의 모든 키는 루트 노드의 키보다 작고 오른쪽 서브트리의 모든 키는 루트 노드의 키보다 크다는 성질을 갖고 있다. 이를 통해 효율적인 검색이 가능하다.
+</details>
+<details>
+  <summary>9-1. BST에서 최악의 상황과 그 때의 시간 복잡도에 대해 설명해주세요</summary>
+  노드가 한 쪽으로 치우친 경우 시간 복잡도가 O(N)으로 늘어난다.
+</details>
+<details>
+  <summary>9-2. 해당 문제를 어떻게 해결할 수 있을까요?</summary>
+  자가 균형 트리를 사용한다 ⇒ 레드-블랙 트리, AVL
+
+[레드-블랙 트리]
+
+레드 블랙 트리란, BST의 일종으로 각 노드가 Red 또는 Black의 색상을 가짐으로써 스스로 균형을 유지하는 트리다. 레드-블랙 트리만의 규칙이 존재하고 해당 규칙을 지키기 위해 노드의 색을 변경하거나 rotation을 하며 균형을 유지한다. 그 결과로 검색, 삽입, 삭제 시 모두 `O(logN)` 이 보장된다.
+
+[AVL 트리]
+
+AVL 트리란 자가 균형 이진 탐색 트리 중 하나로, 각 노드의 서브트리 높이 차이가 최대 1을 유지하도록 한다. 트리가 변경되는 과정에서 균형이 깨지게 된다면 rotation을 통해 높이 차이를 유지한다.
+</details>
+
+---
+
+<details>
+  <summary>10. HashMap 자료구조에 대해 설명해주세요</summary>
+  HashMap은 key-value 형태로 데이터를 저장하는데, 이때 key 값을 해시함수를 거쳐 해당 데이터가 저장될 배열에서의 index 값을 얻어 저장한다. 그렇기 때문에 key 값으로 value에 O(1)의 시간 복잡도로 접근이 가능하다.
+</details>
+<details>
+  <summary>10-1. 문충돌이 발생하면 어떻게 하나요?제</summary>
+  버킷 사이즈 조절, Chaining, Open Addressing 방식이 있다.
+
+- 버킷을 생성할 때 threshold(임계점)을 지정하고, 해당 threshold를 넘어가면 size를 2배로 늘린다.
+- Chaining은 LinkedList를 활용하여 해당 자리에 이미 다른 값이 존재한다면, 즉 충돌했다면 그 자리에서 LinkedList로 연결하여 값을 저장한다.
+- Open Addressing은 충돌이 발생할 경우 빈 공간을 찾아 저장한다. (선형 탐색, 제곱 탐색)
+</details>
+<details>
+  <summary>10-2. 자바에서는 어떻게 처리하고 있나요?</summary>
+  <li> threshold → 근데 버킷 사이즈를 조절한다고 해서 충돌이 안 일어나는 것은 아니다!</li>
+<li> Linked List + Red-Black Tree<ul>
+    <li> 초기에는 chaining 방식으로 해결한다. 근데 충돌이 너무 자주 발생해서 chaining이 길어지면 시간 복잡도가 최악의 경우엔 O(N)이 된다.</li>
+    <li> 그래서 충돌이 심해지면 Red Black Tree로 바꿔준다. (Node 객체를 TreeNode로 바꿔준 다음에 Red Black Tree로 바꿔주면 됨)</li></ul></li>
+</details>
+
+---
