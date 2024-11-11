@@ -121,7 +121,17 @@ LIMIT 절에서 쿼리 결과 중 지정된 순서에 위치한 레코드만 가
 
 </div>
 </details>
-<br/>
+<details>
+<summary>3-3. truncate와 delete의 차이</summary>
+
+truncate는 테이블의 모든 데이터와 인덱스를 삭제하며 용량이 줄어듭니다. 또한, 롤백할 수 없습니다.
+
+delete는 데이터를 삭제해도 테이블의 용량은 줄어들지 않으며 롤백이 가능합니다.
+
+</details>
+
+
+---
 
 <details>
 <summary>4-1. 기본 키(primary key)에 대해서 설명해주세요.</summary>
@@ -161,7 +171,8 @@ LIMIT 절에서 쿼리 결과 중 지정된 순서에 위치한 레코드만 가
 
 </div>
 </details>
-<br/>
+
+---
 
 <details>
 <summary>5-1. MySQL의 아키텍처에 관해 설명해주세요.</summary>

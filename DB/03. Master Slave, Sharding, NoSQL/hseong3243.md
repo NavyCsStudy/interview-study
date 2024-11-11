@@ -88,6 +88,10 @@ Sets은 순서가 보장되지 않는 고유한 문자열 집합입니다.
 #### Sorted sets
 Sorted sets는 연관된 점수에 따라 정렬되어 있는 고유한 문자열의 집합입니다.
 </details>
+<details>
+<summary>4-2. Redis는 단일 스레드인데 어떻게 빠른 성능을 제공할 수 있을까요?</summary>
+
+</details>
 
 ---
 

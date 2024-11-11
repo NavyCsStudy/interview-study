@@ -1,7 +1,9 @@
 <details>
   <summary>1. 정렬 알고리즘에 대해 알고 있는 것들을 설명해주세요.</summary>
 
-#### 버블 정렬(Bubble sort)
+<details>
+<summary>버블 정렬(Bubble sort)</summary>
+
 버블 정렬은 서로 인접한 두 원소를 비교하여 정렬하는 알고리즘입니다. 인접한 두 원소의 크기가 순서대로 되어 있지 않다면 서로 교환합니다.
 
 첫번째 루프가 종료되면 (오름차순인 경우) 가장 큰 자료가 가장 마지막으로 이동하므로 두번째 루프에서는 마지막 자료는 정렬에서 제외됩니다. 이처럼 루프를 반복할수록 정렬에서 제외되는 데이터가 하나씩 늘어납니다.
@@ -21,7 +23,10 @@ public void bubble(int[] arr) {
 
 시간복잡도는 `(n-1)+(n-2)+(n-3)+...+2+1=n(n-1)/2`번의 비교를 수행하므로 O(n^2)입니다. 정렬되어 있는지 여부에 상관없이 비교를 수행하기 때문에 최선, 평균, 최악의 경우 모든 시간 복잡도가 O(n^2)으로 동일합니다.
 
-#### 선택 정렬(Selection sort)
+</details>
+
+<details>
+<summary>선택 정렬(Selection sort)</summary>
 선택 정렬은 원소를 넣을 위치는 이미 정해져 있고, 어떤 원소를 넣을지 선택하는 알고리즘입니다.
 
 첫번째 루프에서 가장 처음의 원소부터 마지막 원소까지 차례로 비교하면서 가장 작은 값을 찾습니다. 그런 다음 첫번째 원소와 가장 작은 원소를 서로 교환합니다. 두번째 루프에서는 첫번째 원소를 정렬에서 제외합니다. 이처럼 루프를 반복할수록 정렬에서 제외되는 데이터가 하나씩 늘어납니다.
@@ -43,7 +48,11 @@ public void selection(int[] arr) {
 
 시간복잡도는 `(n-1)+(n-2)+(n-3)+...+2+1=n(n-1)/2`번의 비교를 수행하므로 O(n^2)입니다.
 
-#### 삽입 정렬(Insertion sort)
+</details>
+
+<details>
+<summary>삽입 정렬(Insertion sort)</summary>
+
 삽입 정렬은 배열의 모든 원소를 앞에서부터 차례대로 이미 정렬된 부분과 비교하여 자신의 위치를 찾아 삽입하는 알고리즘입니다.
 
 두번째 원소부터 시작하여 앞의 원소들과 비교하여 삽입할 위치를 지정한 뒤, 원소를 뒤로 옮기고 지정한 자리에 삽입합니다. 
@@ -63,9 +72,16 @@ public void insertion(int[] arr) {
 
 시간복잡도는 최악의 경우 `(n-1)+(n-2)+(n-3)+...+2+1=n(n-1)/2`번의 비교를 수행하므로 O(n^2)입니다. 그러나 최선의 경우 내부 루프에 진입하지 않고 `n-1`의 비교만 수행하므로 O(n)입니다.
 
+</details>
+<details>
+<summary>힙 정렬(Heap sort)</summary>
+힙 정렬은 힙 트리를 구성하여 정렬을 수행하는 방법입니다. 힙은 완전 이진 트리의 일종으로 특성에 따라 맥스힙 또는 민힙으로 나뉩니다.
 
-#### 힙 정렬(Heap sort)
-힙 정렬은 힙 트리를 구성하여 정렬을 수행하는 방법입니다. 힙은 완전 이진 트리의 일종으로 우선순위 큐를 위하여 만들어진 자료 구조입니다.
+기본 원리는 다음과 같습니다.
+1) 주어진 배열을 최대 힙(또는 최소 힙)으로 구성합니다.
+2) 힙의 루트(최대값 또는 최소값)를 배열의 마지막 요소와 교환합니다..
+3) 힙의 크기를 1 감소시키고, 루트에서 힙 속성을 복구합니다.
+4) 2,3 단계를 힙의 크기가 1이 될 때까지 반복합니다.
 
 ```java
 void heapSort(int[] arr) {
@@ -91,39 +107,45 @@ void heapify(int[] arr, int n, int i) {
 
 시간복잡도는 O(nlogn)입니다.
 
-#### 퀵 정렬(Quick sort)
+</details>
+<details>
+<summary>퀵 정렬(Quick sort)</summary>
+
 퀵 정렬은 분할 정복 방법을 통해 정렬을 수행하며 평균적으로 매우 빠른 수행 속도를 가집니다.
 
 배열 안에 있는 한 요소, 피벗을 선택합니다. 피벗을 기준으로 작은 요소들은 왼쪽으로, 큰 요소들은 오른 쪽으로 옮깁니다. 피벗을 제외한 왼쪽 배열과 오른쪽 배열에 대해 다시 정렬을 수행합니다. 이 과정을 더 이상 배열의 분할이 불가능할 때까지 진행합니다.
+
 ```java
-public void quick(int[] arr, int left, int right) {
-    if(left >= right) {
-        return;
-    }    
-    
-    int pivot = partition(arr, left, right);
-    quick(arr, left, pivot - 1);
-    quick(arr, pivot + 1, right);
+public void quickSort(int[] arr, int left, int right) {
+  if (left >= right) {
+    return;
+  }
+
+  int pivot = partition(arr, left, right);
+  quickSort(arr, left, pivot - 1);
+  quickSort(arr, pivot + 1, right);
 }
 
-private void pivot(int[] arr, int left, int right) {
-    int pivot = arr[right];
-    int sortedIndex = left;
-    for(int i=left; i<right; i++) {
-        if(arr[i] <= pivot) {
-            swap(arr, i, sortedIndex);
-            sortedIndex++;
-        }   
+private int partition(int[] arr, int left, int right) {
+  int pivot = arr[right];
+  int sortedIndex = left;
+  for (int i = left; i < right; i++) {
+    if (arr[i] <= pivot) {
+      swap(arr, i, sortedIndex);
+      sortedIndex++;
     }
-    swap(arr, sortedIndex, right);
-    return sortedIndex;
+  }
+  swap(arr, sortedIndex, right);
+  return sortedIndex;
 }
 ```
 
 시간복잡도는 배열의 길이가 2^n인 경우 logn의 깊이를 가지고 각 단계마다 n번의 비교를 수행하기 때문에 평균적으로 O(nlogn)입니다. 그러나 한쪽의 깊이만 계속해서 깊어지는 최악의 경우 n의 높이를 가지기 때문에 O(n^2)입니다.
 
+</details>
+<details>
+<summary>합병 정렬(Merge sort)</summary>
 
-#### 합병 정렬(Merge sort)
 병합 정렬은 분할 정복 방법을 이용합니다.
 
 정렬되지 않은 리스트를 절반으로 잘라 비슷한 크기의 두 부분 리스트로 나눕니다. 각 부분 리스트를 재귀적으로 합병 정렬을 이용해 정렬합니다. 나뉜 부분 리스트는 다시 하나의 정렬된 리스트로 합병합니다.
@@ -168,6 +190,7 @@ void merge(int[] arr, int left, int mid, int right) {
 }
 ```
 
+</details>
 </details>
 <details>
   <summary>1-1. 자바에서 사용하는 정렬이 무엇인지 알고 있나요?</summary>
@@ -236,7 +259,7 @@ Tim sort는 실생활의 특성을 적용하여 여러 가지 최적화 기법�
 <details>
   <summary>3-1. 링크드 리스트에 대해 설명해주세요.</summary>
 
-링크드 리스트는 연관된 데이터를 메모리 상에 비연속적으로 저장하는 자료 구조입니다. 각각의 노드는 다음 노드를 가리키는 링크를 가지고 있으며 이를 통해 논리적인 연속성을 가집니다. 각 요소에 접근하기 위해서는 탐색을 수행해야하기 때문에 O(n)의 시간이 소요되나 리스트의 중간에 데이터 삽입, 삭제는 더 빠르게 수행할 수 있습니다. 
+링크드 리스트는 연관된 데이터를 메모리 상에 비연속적으로 저장하는 자료 구조입니다. 각각의 노드는 다음 노드를 가리키는 링크를 가지고 있으며 이를 통해 논리적인 연속성을 가집니다. 각 요소에 접근하기 위해서는 탐색을 수행해야하기 때문에 O(n)의 시간이 소요됩니다. 삽입, 삭제의 경우 첫번째, 마지막 노드의 경우 O(1)이 소요되나 중간 노드의 경우 탐색이 필요합니다.
 
 </details>
 <details>
@@ -336,6 +359,8 @@ AVL은 레드 블랙에 비해 더 엄격한 균형을 유지하기 때문에 �
 
 #### 다익스트라
 다익스트라 알고리즘은 한 정점에서 다른 모든 정점으로 가능 최단 경로를 구하는 알고리즘입니다. 방향 유무는 상관 없으며 음수 간선이 존재한다면 사용할 수 없습니다. 우선순위 큐를 사용하는 경우 해당 알고리즘의 시간복잡도는 O(|E|+|V|log|V|)입니다. 
+
+bfs 
 
 #### 플로이드-워셜
 플로이드-워셜 알고리즘은 그래프에서 가능한 모든 노드 쌍에 대해 최단 거리를 구하는 알고리즘입니다. 다익스트라와 달리 모든 노드 쌍에 대해 최단 거리를 구하고, 음의 가중치를 가지는 그래프에도 쓸 수 있다는 차이점이 있습니다. 시간복잡도는 O(V^3)입니다.
